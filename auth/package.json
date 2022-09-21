@@ -6,6 +6,7 @@
   "scripts": {
     "start": "ts-node-dev --poll --files src/index.ts",
     "test": "jest --config jest.config.ts --watchAll --no-cache --coverage",
+    "test:ci": "jest",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
