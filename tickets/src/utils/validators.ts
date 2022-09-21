@@ -1,4 +1,4 @@
-import { body } from "express-validator";
+import { body } from 'express-validator';
 
 /**
  * Create a req.body data validation schema for some endpoints
@@ -6,12 +6,7 @@ import { body } from "express-validator";
  */
 export const bodyValidatorSchema = () => {
   return [
-    body("title")
-      .isString()
-      .notEmpty()
-      .withMessage("Invalid or empty ticket title"),
-    body("price")
-      .isFloat({ gt: 0 })
-      .withMessage("Price must be greater than 0"),
+    body('title').isString().notEmpty().withMessage('Invalid or empty ticket title'),
+    body('price').isFloat({ gt: 0 }).withMessage('Price must be greater than 0'),
   ];
 };

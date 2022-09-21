@@ -1,7 +1,7 @@
-import { Schema, model } from "mongoose";
-import { updateIfCurrentPlugin } from "mongoose-update-if-current";
+import { Schema, model } from 'mongoose';
+import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
 
-import { TicketModel, TicketDoc } from "../types";
+import { TicketModel, TicketDoc } from '../types';
 
 const ticketsSchema = new Schema(
   {
@@ -39,10 +39,10 @@ const ticketsSchema = new Schema(
 /**
  * Set versionate strategy
  */
-ticketsSchema.set("versionKey", "version");
+ticketsSchema.set('versionKey', 'version');
 ticketsSchema.plugin(updateIfCurrentPlugin);
 
 /**
  * Expose Tickets model
  */
-export const Ticket = model<TicketDoc, TicketModel>("Ticket", ticketsSchema);
+export const Ticket = model<TicketDoc, TicketModel>('Ticket', ticketsSchema);

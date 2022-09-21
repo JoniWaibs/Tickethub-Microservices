@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
-import mongoose from "mongoose";
+import { Request, Response } from 'express';
+import mongoose from 'mongoose';
 
-import { Ticket } from "../models/tickets";
-import { BadRequestError, NotFoundError } from "@ticket-hub/common";
+import { Ticket } from '../models/tickets';
+import { BadRequestError, NotFoundError } from '@ticket-hub/common';
 
 export const getTicketsController = {
   /**
@@ -22,7 +22,7 @@ export const getTicketsController = {
    * @param res - Express res fn
    */
   getTicketById: async (req: Request, res: Response) => {
-    const { id: ticketId = "" } = req.params;
+    const { id: ticketId = '' } = req.params;
 
     /**
      * Input id validation
@@ -30,13 +30,13 @@ export const getTicketsController = {
     const mongooseIdType = new mongoose.Types.ObjectId(ticketId).toString();
     const isValidId = mongooseIdType === ticketId;
     if (!isValidId) {
-      throw new BadRequestError("Invalid or missing ticket id");
+      throw new BadRequestError('Invalid or missing ticket id');
     }
 
     const ticket = await Ticket.findById(ticketId);
 
     if (!ticket) {
-      throw new NotFoundError("Ticket not found");
+      throw new NotFoundError('Ticket not found');
     }
 
     return res.status(200).json(ticket);

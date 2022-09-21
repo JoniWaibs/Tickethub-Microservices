@@ -3,12 +3,8 @@ export const natsWrapper = {
     /**
      * publish event mock implementation
      */
-    publish: jest
-      .fn()
-      .mockImplementation(
-        (topic: string, data: string, callback: () => void) => {
-          callback();
-        }
-      ),
+    publish: jest.fn().mockImplementation((topic: string, data: string, callback: () => void) => {
+      callback();
+    }),
   },
 };

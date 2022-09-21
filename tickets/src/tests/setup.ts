@@ -1,12 +1,12 @@
-import { MongoMemoryServer } from "mongodb-memory-server";
-import mongoose from "mongoose";
-import jwt from "jsonwebtoken";
+import { MongoMemoryServer } from 'mongodb-memory-server';
+import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
 
-import { UserModel, Global } from "../types";
+import { UserModel, Global } from '../types';
 
 declare const global: Global;
 let mongo: any;
-jest.mock("../nats-wrapper.ts");
+jest.mock('../nats-wrapper.ts');
 
 /**
  * Connect mongoose with MongoMemoryServer for testing purposes
@@ -15,7 +15,7 @@ beforeAll(async () => {
   /**
    * Sets environment variable for testing purposes
    */
-  process.env.JWT_SECRET_KEY = "testing-secret-key";
+  process.env.JWT_SECRET_KEY = 'testing-secret-key';
 
   mongo = await MongoMemoryServer.create();
   const mongoUri = mongo.getUri();
@@ -28,13 +28,13 @@ beforeAll(async () => {
 beforeEach(async () => {
   jest.clearAllMocks();
   const collections = await mongoose.connection.db.collections();
-  collections.forEach((collection) => collection.deleteMany({}));
+  collections.forEach(collection => collection.deleteMany({}));
 });
 
 /**
  * Stop and close DDBB connection
  */
-afterAll((done) => {
+afterAll(done => {
   mongo.stop();
   mongoose.connection.close();
   done();
@@ -64,7 +64,7 @@ global.signup = (authenticatedUserMock: UserModel): string => {
   /**
    * Encode JSON to base64
    */
-  const base64 = Buffer.from(sessionJSON).toString("base64");
+  const base64 = Buffer.from(sessionJSON).toString('base64');
 
   /**
    * Build a valid authentication cookie

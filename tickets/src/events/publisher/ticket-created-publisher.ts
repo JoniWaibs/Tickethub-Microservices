@@ -1,4 +1,4 @@
-import { Publisher, TicketCreatedEvent, Topics } from "@ticket-hub/common";
+import { Publisher, TicketCreatedEvent, Topics } from '@ticket-hub/common';
 
 /**
  * Custom event publisher

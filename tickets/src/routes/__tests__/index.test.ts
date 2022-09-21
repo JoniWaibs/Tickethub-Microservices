@@ -1,8 +1,8 @@
-import request from "supertest";
-import { server } from "../../app";
-import { BASE_API_URL } from "../../enums/api-url";
+import request from 'supertest';
+import { server } from '../../app';
+import { BASE_API_URL } from '../../enums/api-url';
 
-describe("App endpoints", () => {
+describe('App endpoints', () => {
   let expected: any;
   let baseUrl: string;
 
@@ -10,25 +10,21 @@ describe("App endpoints", () => {
     baseUrl = `${BASE_API_URL}`;
   });
 
-  test("returns 404 error when endpoint does not exists", async () => {
-    const response = await request(server)
-      .post(`${baseUrl}/wrong-endpoint`)
-      .send({});
+  test('returns 404 error when endpoint does not exists', async () => {
+    const response = await request(server).post(`${baseUrl}/wrong-endpoint`).send({});
     expect(response.status).toEqual(404);
   });
 
-  test("has a route handler listening on /api/tickets for get requests", async () => {
+  test('has a route handler listening on /api/tickets for get requests', async () => {
     const response = await request(server).get(baseUrl).send({});
     expect(response.status).toEqual(200);
   });
 
-  test("healthyCheck endpoint does works", async () => {
-    const response = await request(server)
-      .get(`${baseUrl}/healthcheck`)
-      .send({});
+  test('healthyCheck endpoint does works', async () => {
+    const response = await request(server).get(`${baseUrl}/healthcheck`).send({});
 
     expected = {
-      Info: "isHealthy",
+      Info: 'isHealthy',
     };
     expect(response.status).toEqual(200);
     expect(response.text).toEqual(JSON.stringify(expected));

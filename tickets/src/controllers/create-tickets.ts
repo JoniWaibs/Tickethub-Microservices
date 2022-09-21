@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import { TicketCreatedPublisher } from "../events/publisher/ticket-created-publisher";
-import { Ticket } from "../models/tickets";
-import { natsWrapper } from "../nats-wrapper";
+import { TicketCreatedPublisher } from '../events/publisher/ticket-created-publisher';
+import { Ticket } from '../models/tickets';
+import { natsWrapper } from '../nats-wrapper';
 
 /**
  * Controller to create a new ticket

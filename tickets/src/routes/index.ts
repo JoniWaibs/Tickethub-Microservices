@@ -1,14 +1,11 @@
-import express from "express";
-import {
-  requestValidationMiddleware,
-  requireAuthMiddleware,
-} from "@ticket-hub/common";
+import express from 'express';
+import { requestValidationMiddleware, requireAuthMiddleware } from '@ticket-hub/common';
 
-import { createTicketsController } from "../controllers/create-tickets";
-import { getTicketsController } from "../controllers/get-tickets";
-import { updateTicketsController } from "../controllers/update-tickets";
-import { bodyValidatorSchema } from "../utils/validators";
-import { BASE_API_URL } from "../enums/api-url";
+import { createTicketsController } from '../controllers/create-tickets';
+import { getTicketsController } from '../controllers/get-tickets';
+import { updateTicketsController } from '../controllers/update-tickets';
+import { bodyValidatorSchema } from '../utils/validators';
+import { BASE_API_URL } from '../enums/api-url';
 
 const router = express.Router();
 

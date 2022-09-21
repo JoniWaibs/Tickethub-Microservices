@@ -1,10 +1,10 @@
-import { Request, Response } from "express";
-import mongoose from "mongoose";
-import { BadRequestError, NotFoundError } from "@ticket-hub/common";
+import { Request, Response } from 'express';
+import mongoose from 'mongoose';
+import { BadRequestError, NotFoundError } from '@ticket-hub/common';
 
-import { Ticket } from "../models/tickets";
-import { TicketUpdatedPublisher } from "../events/publisher/ticket-updated-publisher";
-import { natsWrapper } from "../nats-wrapper";
+import { Ticket } from '../models/tickets';
+import { TicketUpdatedPublisher } from '../events/publisher/ticket-updated-publisher';
+import { natsWrapper } from '../nats-wrapper';
 
 /**
  * Controller to get update tickets by id
@@ -13,7 +13,7 @@ import { natsWrapper } from "../nats-wrapper";
  */
 export const updateTicketsController = async (req: Request, res: Response) => {
   const { params, body } = req;
-  const { id: ticketId = "" } = params;
+  const { id: ticketId = '' } = params;
 
   /**
    * Input id validation
@@ -21,7 +21,7 @@ export const updateTicketsController = async (req: Request, res: Response) => {
   const mongooseIdType = new mongoose.Types.ObjectId(ticketId).toString();
   const isValidId = mongooseIdType === ticketId;
   if (!isValidId) {
-    throw new BadRequestError("Invalid or missing ticket id");
+    throw new BadRequestError('Invalid or missing ticket id');
   }
 
   /**
@@ -29,14 +29,14 @@ export const updateTicketsController = async (req: Request, res: Response) => {
    */
   const ticket = await Ticket.findById(ticketId);
   if (!ticket) {
-    throw new NotFoundError("Ticket not found");
+    throw new NotFoundError('Ticket not found');
   }
 
   /**
    * Validate if user is ticket owner
    */
   if (ticket.userId !== req.currentUser!.id) {
-    throw new BadRequestError("The ticket does not belong to user");
+    throw new BadRequestError('The ticket does not belong to user');
   }
 
   /**
@@ -44,7 +44,7 @@ export const updateTicketsController = async (req: Request, res: Response) => {
    */
   const isReserved = ticket.orderId;
   if (isReserved) {
-    throw new BadRequestError("The ticket has been reserved");
+    throw new BadRequestError('The ticket has been reserved');
   }
 
   /**
@@ -54,11 +54,7 @@ export const updateTicketsController = async (req: Request, res: Response) => {
     title: body.title,
     price: body.price,
   };
-  const ticketUpdated = await Ticket.findByIdAndUpdate(
-    { _id: ticketId },
-    { $set: dataToUpdate },
-    { new: true }
-  );
+  const ticketUpdated = await Ticket.findByIdAndUpdate({ _id: ticketId }, { $set: dataToUpdate }, { new: true });
 
   /**
    * Send event to topic: ticket:updated

@@ -1,12 +1,12 @@
-import { Ticket } from "../tickets";
+import { Ticket } from '../tickets';
 
-describe("tickets model", () => {
-  test("implements optimistic concurrency control", async () => {
+describe('tickets model', () => {
+  test('implements optimistic concurrency control', async () => {
     // create an ticket instance
     const ticket = new Ticket({
-      title: "ticket test",
+      title: 'ticket test',
       price: 5,
-      userId: "1234",
+      userId: '1234',
     });
 
     // save ticket to DDBB
@@ -29,15 +29,15 @@ describe("tickets model", () => {
       return;
     }
 
-    throw new Error("Error");
+    throw new Error('Error');
   });
 
-  test("increments the version number on multiple saves", async () => {
+  test('increments the version number on multiple saves', async () => {
     // create an ticket instance
     const ticket = new Ticket({
-      title: "ticket test",
+      title: 'ticket test',
       price: 5,
-      userId: "1234",
+      userId: '1234',
     });
 
     // save ticket to DDBB

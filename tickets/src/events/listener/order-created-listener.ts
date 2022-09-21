@@ -1,14 +1,9 @@
-import {
-  Listener,
-  NotFoundError,
-  OrderCreatedEvent,
-  Topics,
-} from "@ticket-hub/common";
-import { Message } from "node-nats-streaming";
+import { Listener, NotFoundError, OrderCreatedEvent, Topics } from '@ticket-hub/common';
+import { Message } from 'node-nats-streaming';
 
-import { SERVICE_NAME } from "../../enums/constants";
-import { Ticket } from "../../models/tickets";
-import { TicketUpdatedPublisher } from "../publisher/ticket-updated-publisher";
+import { SERVICE_NAME } from '../../enums/constants';
+import { Ticket } from '../../models/tickets';
+import { TicketUpdatedPublisher } from '../publisher/ticket-updated-publisher';
 
 export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
   topic: Topics.OrderCreated = Topics.OrderCreated;
@@ -20,13 +15,13 @@ export class OrderCreatedListener extends Listener<OrderCreatedEvent> {
    * @param data - Order data
    * @param payload - Message from NATS objetc
    */
-  async onMessage(data: OrderCreatedEvent["data"], payload: Message) {
+  async onMessage(data: OrderCreatedEvent['data'], payload: Message) {
     const { ticket: orderTicket, id: orderId } = data;
     const { id: ticketId } = orderTicket;
 
     const ticket = await Ticket.findById(ticketId);
     if (!ticket) {
-      throw new NotFoundError("Ticket not found");
+      throw new NotFoundError('Ticket not found');
     }
 
     ticket.set({ orderId });

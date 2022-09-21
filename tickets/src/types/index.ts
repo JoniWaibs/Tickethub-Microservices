@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 /**
  * Thats describe a common ticket schema
@@ -29,7 +29,7 @@ interface BaseUserProperties {
 /**
  * Thats describes the required props to create new user
  */
-export type UserModel = Pick<BaseUserProperties, "id" | "email">;
+export type UserModel = Pick<BaseUserProperties, 'id' | 'email'>;
 
 /**
  * Global types
