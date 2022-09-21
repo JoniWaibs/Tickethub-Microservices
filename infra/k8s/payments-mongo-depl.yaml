@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payments-mongo
+  template:
+    metadata:
+      labels:
+        app: payments-mongo
+    spec:
+      containers:
+        - name: payments-mongo
+          image: mongo # Docker image
+---
+# KUBERNETES CLUSTER IP SERVICE (for payments-mongo pod)
+apiVersion: v1
+kind: Service
+metadata:
+  name: payments-mongo-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: payments-mongo
+  ports:
+    - name: ddbb
+      protocol: TCP
+      port: 27017 # Default mongo PORT.
+      targetPort: 27017
