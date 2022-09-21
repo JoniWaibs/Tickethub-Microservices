@@ -1,6 +1,7 @@
 import request from 'supertest';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
+
 import { server } from '../app';
 import { BASE_API_URL } from '../enums/api-url';
 import { UserModel, Global } from '../types';

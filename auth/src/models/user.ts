@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+
 import { UserModel } from '../types';
 import { Password } from '../utils/hash-password';
 
