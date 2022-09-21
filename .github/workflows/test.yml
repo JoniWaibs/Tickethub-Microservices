@@ -1,0 +1,14 @@
+# This is a basic workflow to execute microservices tests
+
+name: TEST
+
+on:
+  pull_request
+
+jobs:
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a test CI
+      - run: cd auth && npm install && npm run test:ci
