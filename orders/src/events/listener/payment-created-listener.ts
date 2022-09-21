@@ -1,5 +1,6 @@
 import { Message } from 'node-nats-streaming';
 import { Listener, OrderStatus, PaymentCreatedEvent, Topics } from '@ticket-hub/common';
+
 import { SERVICE_NAME } from '../../enums/constants';
 import { Order } from '../../models';
 
