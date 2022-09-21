@@ -1,5 +1,6 @@
 import { Message } from 'node-nats-streaming';
 import { Listener, NotFoundError, ExpirationCompleteEvent, Topics, OrderStatus } from '@ticket-hub/common';
+
 import { SERVICE_NAME } from '../../enums/constants';
 import { Order } from '../../models';
 import { OrderCancelledPublisher } from '../publisher/order-cancelled-publisher';
@@ -30,7 +31,7 @@ export class ExpirationCompleteListener extends Listener<ExpirationCompleteEvent
     const orderUpdated = await order.save();
 
     /**
-     * Send event to topic: order:cancelled
+     * Emit event to topic: order:cancelled
      */
     await new OrderCancelledPublisher(natsWrapper.client).publish({
       id: orderUpdated.id,
