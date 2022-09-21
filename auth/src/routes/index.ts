@@ -1,11 +1,11 @@
 import express from 'express';
+import { currentUserMiddleware, requestValidationMiddleware } from '@ticket-hub/common';
+
 import { currentUserController } from '../controllers/current-user';
 import { signinController } from '../controllers/signin';
 import { signoutController } from '../controllers/signout';
 import { signupController } from '../controllers/signup';
-
 import { BASE_API_URL } from '../enums/api-url';
-import { currentUserMiddleware, requestValidationMiddleware } from '@ticket-hub/common';
 import { bodyValidatorSchema } from '../utils/validators';
 
 const router = express.Router();

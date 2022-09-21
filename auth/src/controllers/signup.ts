@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-
 import { BadRequestError } from '@ticket-hub/common';
+
 import { User } from '../models/user';
 import { UserModel } from '../types';
 
