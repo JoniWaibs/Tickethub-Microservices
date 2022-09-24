@@ -8,4 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd auth && npm install && npm run test:ci
+      - name: Install Dependencies
+        run: cd auth && npm install
+      - name: Run Linter
+        run: cd auth && lint:check
+      - name: Check Format Code
+        run: cd auth && format:check
+      - name: Run Tests
+        run: cd auth && npm run test:ci
