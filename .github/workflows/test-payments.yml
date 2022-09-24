@@ -1,11 +1,20 @@
 name: tests-payments-service
 
 on:
-  pull_request
+  pull_request:
+    paths:
+      - 'payments/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd payments && npm install && npm run test:ci
+      - name: Install Dependencies
+        run: cd payments && npm install
+      - name: Run Linter
+        run: cd payments && npm run lint:check
+      - name: Check Format Code
+        run: cd payments && npm run format:check
+      - name: Run Tests
+        run: cd payments && npm run test:ci

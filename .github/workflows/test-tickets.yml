@@ -1,11 +1,20 @@
 name: tests-tickets-service
 
 on:
-  pull_request
+  pull_request:
+    paths:
+      - 'tickets/**'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd tickets && npm install && npm run test:ci
+      - name: Install Dependencies
+        run: cd tickets && npm install
+      - name: Run Linter
+        run: cd tickets && npm run lint:check
+      - name: Check Format Code
+        run: cd tickets && npm run format:check
+      - name: Run Tests
+        run: cd tickets && npm run test:ci

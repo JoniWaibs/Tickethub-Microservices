@@ -13,7 +13,19 @@
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix ."
   },
-  "keywords": [],
+  "keywords": [
+    "Microservice",
+    "Tickets",
+    "Stripe",
+    "Node",
+    "Typescript",
+    "Event Bus",
+    "Backend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoniWaibs/Tickethub-Microservices/tree/master/tickets"
+  },
   "author": "Jonatan Waibsnaider",
   "license": "ISC",
   "dependencies": {
