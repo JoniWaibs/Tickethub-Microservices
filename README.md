@@ -1,3 +1,8 @@
+[![tests-auth-service](https://github.com/JoniWaibs/Tickethub-Microservices/actions/workflows/test-auth.yml/badge.svg)](https://github.com/JoniWaibs/Tickethub-Microservices/actions/workflows/test-auth.yml)
+[![tests-orders-service](https://github.com/JoniWaibs/Tickethub-Microservices/actions/workflows/test-orders.yml/badge.svg)](https://github.com/JoniWaibs/Tickethub-Microservices/actions/workflows/test-orders.yml)
+[![tests-payments-service](https://github.com/JoniWaibs/Tickethub-Microservices/actions/workflows/test-payments.yml/badge.svg)](https://github.com/JoniWaibs/Tickethub-Microservices/actions/workflows/test-payments.yml)
+[![tests-tickets-service](https://github.com/JoniWaibs/Tickethub-Microservices/actions/workflows/test-tickets.yml/badge.svg)](https://github.com/JoniWaibs/Tickethub-Microservices/actions/workflows/test-tickets.yml)
+
 # Microservices Collection
 
 <strong> A Microservices collection whit a basic front end to sell and buy tickets of any event. All Microservices and the Client service ar support with Docker and Kubernetes and these microservices keeps a communication between them through NATS Streaming Service as EVENT-BUS with asynchronous communication<strong>
@@ -11,7 +16,7 @@
  - MongoDB
  - Redis
  - Next JS
- - Strapi
+ - Stripe
 
 ## This repository contains this microservices
 
