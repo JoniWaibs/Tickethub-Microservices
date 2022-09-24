@@ -11,7 +11,7 @@
  - MongoDB
  - Redis
  - Next JS
- - Strapi
+ - Stripe
 
 ## This repository contains this microservices
 
