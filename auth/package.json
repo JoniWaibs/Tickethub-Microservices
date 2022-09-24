@@ -12,7 +12,14 @@
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix ."
   },
-  "keywords": ["Microservice", "Authorization", "Node", "Typescript", "Event Bus", "Backend"],
+  "keywords": [
+    "Microservice",
+    "Authorization",
+    "Node",
+    "Typescript",
+    "Event Bus",
+    "Backend"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JoniWaibs/Tickethub-Microservices/tree/master/auth"
