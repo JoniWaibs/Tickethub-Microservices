@@ -13,7 +13,18 @@
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix ."
   },
-  "keywords": [],
+  "keywords": [
+    "Microservice",
+    "Orders",
+    "Node",
+    "Typescript",
+    "Event Bus",
+    "Backend"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoniWaibs/Tickethub-Microservices/tree/master/orders"
+  },
   "author": "Jonatan Waibsnaider",
   "license": "ISC",
   "dependencies": {
