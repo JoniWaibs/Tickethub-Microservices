@@ -11,8 +11,8 @@ jobs:
       - name: Install Dependencies
         run: cd auth && npm install
       - name: Run Linter
-        run: cd auth && lint:check
+        run: cd auth && npm run lint:check
       - name: Check Format Code
-        run: cd auth && format:check
+        run: cd auth && npm run format:check
       - name: Run Tests
         run: cd auth && npm run test:ci
