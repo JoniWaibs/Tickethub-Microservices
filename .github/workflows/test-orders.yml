@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install Dependencies
-        run: cd orders && npm install
+        run: cd orders && npm ci
       - name: Run Linter
         run: cd orders && npm run lint:check
       - name: Check Format Code
