@@ -9,9 +9,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.10.0
+        with:
+          access_token: ${{ github.token }}
       - uses: actions/checkout@v2
       - name: Install Dependencies
-        run: cd auth && npm install
+        run: cd auth && npm ci
       - name: Run Linter
         run: cd auth && npm run lint:check
       - name: Check Format Code
