@@ -1,5 +1,4 @@
 import request from 'supertest';
-
 import { server } from '../../app';
 import { BASE_API_URL } from '../../enums/api-url';
 import { UserModel } from '../../types';
